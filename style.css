@@ -1,0 +1,11 @@
+html, body, div, ul, li, p, h1, h2, h3, table, input{ margin: 0; padding: 0 }
+body{ font-family: Arial, '微软雅黑'; font-size: 14px; }
+a{ color: #333; text-decoration: none }
+a:hover{ color: #f00; }
+.container{ margin: 0 auto; width: 1100px; padding: 50px; background: #f9f9f9 }
+.article-list{ }
+.article-list .item{ margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 20px }
+.article-list h3{ display: block; line-height: 30px; margin-bottom: 10px }
+.article-list h3 a{ font-size: 16px; }
+.article-list .demo{ padding-top: 10px }
+.article-list .demo a{ color: #f00; font-size: 12px; }
