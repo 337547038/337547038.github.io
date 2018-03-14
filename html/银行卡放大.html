@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>银行卡放大</title>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/ucsmy.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".formatnum").inputZoom();
+        })
+    </script>
+    <style type="text/css">
+        .table{ border-collapse: collapse; border-spacing: 0; border: 1px solid #e9e9e9; background: #fff }
+        .table th, .table td{ border: 1px solid #e9e9e9; line-height: 25px }
+        .table th{ background: #f7f7f7; }
+        .table td{ padding: 5px 10px; }
+
+        .formatbig .zoomnum{ width: 350px; font-size: 24px; color: #f0b840; border-color: #f0b840}
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>银行卡输入放大脚本</h1>
+<h3 class="fcred">已知问题：IE9下使用鼠标剪切时不会同步更新，需重新获取焦点或改变文本内容时，才会同步。IE兼容模式下点击input自带的叉叉删除也不会同步。</h3>
+    <h3>显示样式写在css，可方便设置不同的展示效果</h3>
+    <br><br>
+    <div class="border" style="padding: 100px">
+        <div class="form-group">
+            <label>银行卡账号</label>
+            <div class="input"> <input type="text" class="input-control formatnum"></div>
+        </div>
+        <div class="form-group formatbig">
+            <label>确认账号</label>
+            <div class="input"> <input type="text" class="input-control formatnum"></div>
+        </div>
+        <div class="form-group formatbig">
+            <label>手机号码</label>
+            <div class="input"> <input type="text" class="input-control formatnum" data-split="1"></div>
+        </div>
+        <div class="form-group formatbig">
+            <label>身份证号</label>
+            <div class="input"> <input type="text" class="input-control formatnum" data-split="[6,8,4]"></div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="border" style="padding:20px; line-height: 25px; ">
+        <h1>inputZoom</h1>
+        <table class="table">
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>f</td>
+                <td>格式化拆分规则，定义有三种，0每四个一组（[4, 4, 4, 4]）（默认），1手机格式（[3, 4, 4]），2身份证格式（[6, 8, 4]），其他格式可自定，并可通过标签设置data-split=2或data-split=[3,4,4]</td>
+            </tr>
+            <tr>
+                <td>w</td>
+                <td>包含数字span的类名，用来显示格式化效果。一般情况下都不需要设置</td>
+            </tr>
+            </table>
+        </div>
+</div>
+</body>
+</html>

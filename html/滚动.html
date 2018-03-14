@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>滚动</title>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/ucsmy.js"></script>
+    <style type="text/css">
+        .scroll{ width:300px; height:200px; margin:0 auto; overflow:hidden }
+        .scroll li,.scroll2 li{ line-height:30px }
+        .scroll2{ height:30px; width:300px; margin:0 auto; overflow:hidden }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+             $(".scroll").myscroll();//无缝滚动
+             $(".scroll2").myscroll({speed:5000,type:1});//新闻类滚动
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+<br><br>
+    <div class="border scroll">
+        <ul>
+            <li>登录时为什么会提示账户被锁定</li>
+            <li>如何查询我的投标情况？</li>
+            <li>为什么我会支付不成功？</li>
+            <li>怎么计算项目实际收益？</li>
+            <li>1分钟前某企业投资了1,000元 </li>
+            <li>投资 6</li>
+            <li>投资 7</li>
+            <li>投资 8</li>
+            <li>投资 9</li>
+            <li>投资 10</li>
+        </ul>
+    </div>
+<br><br>
+    <div class="border scroll">
+        <ul>
+            <li>登录时为什么会提示账户被锁定</li>
+            <li>如何查询我的投标情况？</li>
+            <li>为什么我会支付不成功？</li>
+            <li>怎么计算项目实际收益？</li>
+            <li>1分钟前某企业投资了1,000元 </li>
+            <li>投资 6</li>
+            <li>投资 7</li>
+            <li>投资 8</li>
+            <li>投资 9</li>
+            <li>投资 10</li>
+        </ul>
+    </div>
+    <br><br>
+    <div class="border scroll">
+        <ul>
+            <li>能够显示完整时不会滚动</li>
+            <li>能够显示完整时不会滚动</li>
+            <li>能够显示完整时不会滚动</li>
+        </ul>
+    </div>
+    <br><br>
+    <div class="border scroll2">
+        <ul>
+            <li><a href="javascript:;">最新公告最新公告最新公告最新公告</a> </li>
+            <li><a href="javascript:;">热烈祝贺**投融资平台正式上线</a></li>
+            <li>公告标题</li>
+            <li>投资 9</li>
+            <li>投资 10</li>
+        </ul>
+    </div>
+    <br><br>
+    <div class="border scroll2">
+        <ul>
+            <li><a href="javascript:;">只有一条时不会滚动</a> </li>
+        </ul>
+    </div>
+<br><br><br><br>
+    <h1>myscroll滚动参数</h1>
+    <h3>speed：速度，默认为30<br>
+    type:默认为0，不连续滚动时设置为1</h3>
+</div>
+</body>
+</html>

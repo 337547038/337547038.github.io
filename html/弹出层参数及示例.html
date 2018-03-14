@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>弹出层参数及示例</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/ucsmy.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //回调示例
+            $(".openlayer").click(function () {
+                //这里可以有很多的一些逻辑判断
+                $.layer({
+                    popType: 2,
+                    title: "标题",
+                    contents: "点击确认后会执行回调的内容",
+                    confirm: "确认",
+                    //confirmback为空时点击确认会关闭当前窗口
+                    confirmBack: function (d) {
+                       // $("body").css({overflow:'visible'})
+                        alert("回调确认");
+                        //带回调时关闭窗口需要调用
+                        layer.close(d);//参数可省，带参数关闭当前，不带参数关闭所有窗口
+
+                    },
+                    afterBack:function () {
+                        //$("body").css({overflow:'hidden'})
+                    }
+                });
+            });
+            //以上代码等价于下面代码
+            /*$(".openlayer").layer({
+             poptype: 2,
+             title: "标题",
+             contents: "点击确认后会执行回调的内容",
+             confirm: "确认",
+             //confirmback为空时点击确认会关闭当前窗口
+             confirmback: function (d) {
+             alert("回调确认");
+             //带回调时关闭窗口需要调用
+             layer.close(d);//参数可省，带参数关闭当前，不带参数关闭所有窗口
+             }
+             });*/
+
+            //加载完成回调
+            $(".open-layer-clear").layer({
+                width: 500,
+                afterBack: function (a) {
+                    a.find("input[type='text']").val("");
+                    alert("窗口加载完成，已恢复输入框为初始状态");
+                }
+            });
+
+            //成功提示
+            $(".open-success").layer({
+                //titlt:"温馨提示",　　//也可以不加标题
+                width:500,
+                className:"success",
+                contents:"恭喜，操作成功！",
+                popType:2,
+                showClose:false //不加标题时可以把关闭按钮隐藏
+            });
+            //失败提示
+            $(".open-failure").click(function () {
+               $.layer({
+                   title:"温馨提示",
+                   width:500,
+                   className:"failure",
+                   contents:"操作失败，失败原因：提示文字可以支持多行并且居中对齐，图标也垂直居中。提示文字可以支持多行并且居中对齐，图标也垂直居中。",
+                   popType:2,
+                   confirm:"确定"
+               });
+            });
+        })
+    </script>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <link rel="stylesheet" href="font/iconfont.css" type="text/css">
+    <style type="text/css">
+        .table{ border-collapse: collapse; border-spacing: 0; border: 1px solid #e9e9e9; background: #fff }
+        .table th, .table td{ border: 1px solid #e9e9e9;line-height: 25px }
+        .table th{ background: #f7f7f7 }
+        .table td{ padding: 5px 10px; }
+        .border{ padding: 20px; line-height: 25px;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>窗口宽度，数值型，默认为空，即为调用内容的宽度；</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td> 窗口高度，数值型，默认为空，即为调用窗口的高度；如窗口高度高于浏览器，则按浏览器高度显示，内容区域自动出现滚动条。一般情况可不设置;</td>
+        </tr>
+        <tr>
+            <td>trigger</td>
+            <td> 触发事件，默认为click，注意用mouseover代替hover；</td>
+        </tr>
+        <tr>
+            <td>autoclose</td>
+            <td>是否自动关闭窗口，数值型，单位为秒，默认为0不自动关闭；</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>窗口标题，默认为空，也可直接写在窗口里；</td>
+        </tr>
+        <tr>
+            <td style="color: red">contents</td>
+            <td>
+                窗口调取的内容，默认读取当前属性data-action的值作为类名，仅当poptype=0时；根据poptype的不同有三种写法，1)读取当前页面隐藏div时contents:".class"（仅支持类，前面.号可省略）,2)读取url时contents:"test.html"，需要设置宽高,3)直接显示文字内容contents:"要显示的文字"；
+            </td>
+        </tr>
+        <tr>
+            <td>poptype</td>
+            <td>窗口类型，数值，三种值：0读取本页隐藏div(默认)，1加载外部文档，2直接显示contents文本；</td>
+        </tr>
+        <tr>
+            <td>addclass</td>
+            <td>窗口类名，默认为空；</td>
+        </tr>
+        <tr>
+            <td>position</td>
+            <td>css样式位置，默认为fixed；只有absolute和fixed两种；</td>
+        </tr>
+        <tr>
+            <td>closeparent</td>
+            <td>多层弹窗口时是否关闭父窗口，布尔型(true|false),默认为true；</td>
+        </tr>
+        <tr>
+            <td>confirm</td>
+            <td> 确定按钮文本，默认为空即不显示；</td>
+        </tr>
+        <tr>
+            <td>confirmback</td>
+            <td> 点击确定按钮后执行的函数，可带返回对象；仅当confirm不为空时才会触发回调confirmback函数；当回调为空时，点击确定后默认关闭窗口；</td>
+        </tr>
+        <tr>
+            <td>cancel</td>
+            <td>取消按钮文本，默认为空即不显示；</td>
+        </tr>
+        <tr>
+            <td>cancelback</td>
+            <td>点击取消按钮后执行的函数，可带返回对象；仅当cancel不为null时才会触发回调cancelback函数；回调为空时，点击取消后默认关闭窗口；</td>
+        </tr>
+        <tr>
+            <td>closeback</td>
+            <td>关闭时执行的函数，默认为空，可带返回对象；点击时关闭窗口，回调时不关闭窗口；</td>
+        </tr>
+        <tr>
+            <td>loadback</td>
+            <td>窗口开始加载时执行的函数；</td>
+        </tr>
+        <tr>
+            <td>afterback</td>
+            <td>窗口加载完时执行的函数；可带返回对象；</td>
+        </tr>
+        <tr>
+            <td>move</td>
+            <td>允许窗口拖动，默认为true；</td>
+        </tr>
+        <tr>
+            <td>masklayer</td>
+            <td>显示遮罩层，默认为body。false时不显示，值为遮罩层显示位置，即将遮罩层放在指定的标签内，方便在一些框架页里遮罩层只显示在主内容区</td>
+        </tr>
+
+        <tr>
+            <td>align</td>
+            <td>窗口默认垂直居中对齐，默认为true居中，false时请在css中设置left和top。方便将窗口定位在其它位置</td>
+        </tr>
+        <tr>
+            <td>showclose</td>
+            <td>显示关闭按钮，true或false，默认true</td>
+        </tr>
+        <tr>
+            <td>shadeclose</td>
+            <td>默认为flase;点击遮罩关闭 false不关闭</td>
+        </tr>
+
+        <tr>
+            <td>animation</td>
+            <td>弹出层css3动画效果，仅在支持的浏览器，默认为1。动画序号对应animation样式的alert-anim-*。若不需要动画，删除对应样式或添加一个不存在的样式即可</td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <h1>示例</h1>
+    <br><br>
+    <div class="border">
+        <h2>支持两种引用方法：除contents外其它所有参数均可不填写</h2>
+        <h3>
+            1、直接绑定标签，如$(".div").layer();当样式名为div的标签点击时即可触发；contents可在标签中通过设置data-action="layer-1"设置，等价于：$(".div").layer({contents:".layer-1"})</h3>
+        <h3>2、直接引用，如$.layer({contents:"必须要带内容"});</h3>
+        <br>
+        <h2>确认取消关闭回调：</h2>
+        <h4>返回的对象相当于$(".当前窗口层样式")</h4>
+        <p><a href="javascript:;" style="color: red" class="openlayer">回调示例</a></p>
+        <p>代码：<br>
+            <img src="temp/11.jpg" alt="">
+        </p>
+        <br><br>
+        <h2>加载完成回调</h2>
+        <p>重复打开关闭同一个窗口时,窗口中的表单会保持上一次关闭状态，可通过加载完成回调恢复初始状态</p>
+        <p class="open-layer-clear" data-action="layer-1" style="color: red">加载完成回调</p>
+        <br><br>
+        <h2>两种引用方法间转换（方便技术）</h2>
+        <p>静态页为方便及减少重复的脚本编写，大部分的弹窗都会引用同一个js脚本，如：</p>
+        <p>&lt;input type="button" class="btn-confirm <span class="fc-main"> open-layer</span>" <span class="fc-main">data-action="layer-2"</span> value="确认"> </p>
+        <p>只需把触发弹窗的样式名去掉，也可以同时去掉data-acion，上面红字部分，然后通过$.layer({contents:".layer-2"})引用。这里的contents为上面的data-action的值</p>
+        <p>如下图</p>
+        <p><img src="temp/9.jpg" alt=""/> </p>
+        <br/>
+        <p>上下两种方法是一样的，都可打开类名为layer-1的层，可相互转换，对于下图方法去掉触发弹出层的样式名open-layer即可，自定义添加样式名或id编写click事件，如下图</p>
+        <br/>
+        <p><img src="temp/10.jpg" alt=""/> </p>
+        <br><br>
+        <h2>关闭窗口</h2>
+        <p>1、窗口内的所有close类都可以关闭当前窗口；</p>
+        <p>2、执行layer.close()可关闭页面所有窗口；同时可带参数layer.close($(".layer-1"))，关闭指定的窗口或隐藏其它标签</p>
+        <br><br>
+        <h2>内置两种特殊样式，成功及失败提示</h2>
+        <p>在引用时添加样式success或者failure，如：addclass:"success"</p>
+        <p><a href="javascript:;" class="open-success fcred">成功提示</a> </p>
+        <p><a href="javascript:;" class="open-failure fcred">失败提示</a> </p>
+    </div>
+</div>
+<div class="alert-layer layer-1">
+    <h3 class="alert-title">加载完成回调</h3>
+    <div class="alert-content">
+        <div class="form-group">
+            <label>名称：</label>
+            <div class="input">
+                <input type="text" class="input-control" placeholder="请输入名称">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>名称：</label>
+            <div class="input">
+                <input type="text" class="input-control" placeholder="关闭后重新打开不会保持输入的信息">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>名称：</label>
+            <div class="input">
+                <input type="text" class="input-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>名称：</label>
+            <div class="input">
+                <input type="text" class="input-control">
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+</body>
+</html>

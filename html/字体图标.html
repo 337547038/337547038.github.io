@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>字体图标</title>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".ie7iconfontjson").click(function () {
+                $(".ie7newtextarea").val("");
+                var old = $(".ie7textarea").val();
+                if (old != "") {
+                   // old = old.replace(/.icon-/g, "\"icon").replace(/:before { content: \"\\/g, "\":\"&#x").replace(/\"; }/g, ";\",").replace(/\n/g, "").replace(/-/g, "");
+                    old = old.replace(/.icon-/g, "\"icon-").replace(/:before { content: \"\\/g, "\":\"&#x").replace(/\"; }/g, ";\",").replace(/\n/g, "");
+                    old = old.substring(0, old.length - 1);
+                    old = "var fontjson={" + old + "};";
+                    $(".ie7newtextarea").show().val(old);
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Iconfont</h1>
+    <br><br>
+    <h3 class="fcred">固定名称：icon-note、icon-error、icon-correct（表单三种输入提示），右则浮动计算器意见反馈icon-calculator，icon-feedback</h3>
+    <h3>字体图标使用：首先添加字体基本样式iconfont，然后添加图标对应样式</h3>
+    <br><br>
+    <div class="border" style="padding:50px">
+        <div class="form-group auto-height">
+            <textarea style="height:250px; width:100%; color:#666" class="ie7textarea input-control">/*请将样式代码粘贴到这里*/</textarea>
+            <div class="clear"></div>
+        </div>
+        <div class="form-group">
+            <input type="button" value="生成IE7脚本代码" class="btn btn-confirm ie7iconfontjson" style="width:200px"/>
+        </div>
+        <div class="form-group auto-height">
+            <textarea style="height:250px; width:100%;color:#666; display:none" class="ie7newtextarea input-control"></textarea>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<h1>注意事项：字体图标需共享出来，除共享给项目参与者外，全部都共享给阿乐。减少因一人休假带来不必要的麻烦</h1>
+</body>
+</html>
