@@ -1,0 +1,15 @@
+测试浏览器：
+火狐45.0.2
+chrome49.0.26
+360安全浏览器8.1
+QQ浏览器9.3.1
+IE：7,8,9,11
+safari8.0
+
+
+
+
+sass配置
+--no-cache --update --watch $FileName$:$FileParentDir$\css\$FileNameWithoutExtension$.css --style compact
+
+ compressed //压缩

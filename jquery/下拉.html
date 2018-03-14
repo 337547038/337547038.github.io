@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>下拉</title>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/ucsmy.js"></script>
+    <script type="text/javascript">
+        $(function () {
+           // $(".input-control").inputfocus();//仅对ie9或以下，已在ucsmy.js引用
+            $(".down-control").selectDropDown();//仿select下拉
+
+            $(".callback").selectDropDown({afterBack:function (b) {
+                alert(b.html());
+                return false
+            }});
+        })
+    </script>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <link rel="stylesheet" href="font/iconfont.css" type="text/css">
+    <style type="text/css">
+        .form-reg{
+            padding:50px 0 0 100px;
+        }
+
+        .btn-code, .btn-disabled{
+            padding:0 10px;
+        }
+
+        .form-group .w-100{
+            width:100px
+        }
+        .table{ border-collapse: collapse; border-spacing: 0; border: 1px solid #e9e9e9; background: #fff }
+        .table th, .table td{ border: 1px solid #e9e9e9; line-height: 25px }
+        .table th{ background: #f7f7f7; }
+        .table td{ padding: 5px 10px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>下拉</h1>
+<h3>1.注意：在多个页面下拉引用同一个脚本时，建议不要用本身的样式引用，如$(".select-drapdown").selectDropDown()；
+建议多添加一个样式如$(".添加的类名").selectDropDown()</h3>
+
+    <h3><a href="下拉省市联动.html" class="fcred">下拉省市联动示例</a></h3>
+    <br><br>
+    <!-- 表单演示开始 -->
+    <div class="border form-reg">
+        <div class="form-group">
+            <label>下拉：</label>
+            <div class="select-dropdown down-control" data-value="2">
+                <div class="input-control"></div>
+                <div class="dropdown">
+                    <ul>
+                        <li data-value="1">没有设定下拉数，不会出现滚动条</li>
+                        <li data-value="2">下拉选项目2</li>
+                        <li data-value="3">下拉选项目3</li>
+                        <li data-value="4">下拉选项目1</li>
+                        <li data-value="5">下拉选项目2</li>
+                        <li data-value="6">下拉选项目3</li>
+                        <li data-value="7">下拉选项目1</li>
+                        <li data-value="8">下拉选项目2</li>
+                        <li data-value="9">下拉选项目3</li>
+                    </ul>
+                </div>
+                <input type="hidden" class="select-value">
+            </div>
+            <div class="ui-tips">
+                <div class="note block"><i class="iconfont icon-note"></i><span>输入提示</span></div>
+                <div class="error"><i class="iconfont icon-error"></i><span>输入错误提示</span></div>
+                <div class="correct"><i class="iconfont icon-correct"></i></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>下拉：</label>
+            <div class="select-dropdown margin-right down-control" data-num="6">
+                <div class="input-control w-100" data-default="请选择">请选择</div>
+                <div class="dropdown">
+                    <ul>
+                        <li>下拉选项目1</li>
+                        <li>下拉选项目2</li>
+                        <li>下拉选项目3</li>
+                        <li>下拉选项目4</li>
+                        <li>下拉选项目5</li>
+                        <li>下拉选项目6</li>
+                        <li>下拉选项目7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="select-dropdown down-control">
+                <div class="input-control w-100">请选择</div>
+                <div class="dropdown">
+                    <ul>
+                        <li>下拉选项目1</li>
+                        <li>下拉选项目2</li>
+                        <li>下拉选项目3</li>
+                        <li>下拉选项目3</li>
+                        <li>下拉选项目3</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ui-tips">
+                <div class="note"><i class="iconfont icon-note"></i><span>输入提示</span></div>
+                <div class="error block"><i class="iconfont icon-error"></i><span>输入错误提示</span></div>
+                <div class="correct"><i class="iconfont icon-correct"></i></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>带搜索下拉：</label>
+            <div class="select-dropdown down-control">
+                <div class="input-control"></div>
+                <div class="dropdown">
+                    <ul>
+                        <li>下拉选项目1</li>
+                        <li>下拉选项目2</li>
+                        <li>下拉选项目3</li>
+                        <li class="notdata"><i class="bg-icon"></i> 无搜索结果</li>
+                    </ul>
+                    <div class="search">
+                        <input type="text" class="input input-control">
+                        <input type="button" class="btn bg-icon" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="ui-tips">
+                <div class="note"><i class="iconfont icon-note"></i><span>输入提示</span></div>
+                <div class="error"><i class="iconfont icon-error"></i><span>输入错误提示</span></div>
+                <div class="correct block"><i class="iconfont icon-correct"></i></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>选项与值对应：</label>
+            <div class="select-dropdown down-control">
+                <div class="input-control">请选择</div>
+                <input type="hidden" class="input-value">
+                <div class="dropdown">
+                    <ul>
+                        <li data-value="value值1">选项一</li>
+                        <li data-value="value值2">选项二</li>
+                        <li data-value="value值3">选项三</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>显示默认值：</label>
+            <div class="select-dropdown down-control">
+                <div class="input-control">请选择</div>
+                <input type="hidden" class="input-value">
+                <div class="dropdown">
+                    <ul>
+                        <li data-value="value值1">选项一</li>
+                        <li data-value="value值2">选项二</li>
+                        <li data-value="value值3">选项三</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>显示默认值：</label>
+            <div class="select-dropdown callback">
+                <div class="input-control">请选择</div>
+                <input type="hidden" class="input-value">
+                <div class="dropdown">
+                    <ul>
+                        <li data-value="value值1">选项一</li>
+                        <li data-value="value值2">选项二</li>
+                        <li data-value="value值3">选项三</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>&nbsp;</label>
+            <input type="button" value="确定" class="btn btn-confirm">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- 表单演示结束 -->
+    <br><br>
+    <div class="border" style="padding:20px; line-height: 25px;">
+        <h1>selectDropDown</h1>
+        <h3>1.支持选择后将对应值存在input里。可在select-dropdown下增加隐藏样式名为select-value的输入框，然后在下拉的li添加属性data-value="值"。表单提交后获取隐藏select-value的值</h3>
+        <h3>2.修改时可直接将值写在当前标签，如&lt;div class="select-dropdown" data-value="2"></h3>
+        <table class="table">
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>trigger</td>
+                <td>触发事件,注意用mouseover代替hover</td>
+            </tr>
+            <tr>
+                <td>liNum</td>
+                <td>显示li的个数，超出滚动条；也可通过添加属性data-num="5"设定下拉数（优先）</td>
+            </tr>
+            <tr>
+                <td>zIndexDiv</td>
+                <td>在指定最外层div，添加类名，兼容ie7层级问题。默认为form-group</td>
+            </tr>
+            <tr>
+                <td>afterBack</td>
+                <td>回调函数，可带参数。参数为当前点击对象</td>
+            </tr>
+            <tr>
+                <td>fc</td>
+                <td>取点焦点时添加的样式，跟input一样效果，默认为focus</td>
+            </tr>
+            <tr>
+                <td>width</td>
+                <td>下拉的宽度，主要是解决输入框比较短，但下拉的li文字比较多时，也可通过添加属性data-width="200"设定宽度（优先），默认100%</td>
+            </tr>
+            <tr>
+                <td>downStyle</td>
+                <td>downStyle: true //设置下拉位置样式，false时width参数无效</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br><br>
+    <div class="border" style="padding:50px;">
+        <h1>代码结构</h1>
+        <br><br>
+    <img src="temp/1.jpg">
+    </div>
+</div>
+
+</body>
+</html>
