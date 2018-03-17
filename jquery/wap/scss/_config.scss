@@ -1,0 +1,13 @@
+@charset "utf-8";
+@function px($n) {
+  @return $n / 75 + rem;
+}
+@function bg-size($w,$h) {
+  @return $w / 75 + rem $h / 75 + rem;
+}
+@mixin clear() { display: block; content: '.'; clear: both; height: 0; line-height: 0; visibility: hidden; }
+@mixin height($h) { height: px($h); line-height: px($h); }
+$color-blue: #4661a1;
+$color-orange: #f18e59;
+$color-white: #fff;
+$color-dark: #333;

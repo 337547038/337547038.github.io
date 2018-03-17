@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>进度条</title>
+    <link rel="stylesheet" href="css/ucsmy.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/ucsmy.js"></script>
+    <style type="text/css">
+        .progress{ width:400px; }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            $(".progress").progress();//进度动画
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+
+    <br><br><br>
+    <h1>条状</h1>
+    <div class="progress"><b></b><span>0%</span></div>
+    <br>
+    <div class="progress"><b></b><span>56%</span></div>
+    <br>
+    <div class="progress"><b></b><span>100%</span></div>
+    <br><br>
+    <div class="progress"><b></b><i>80%</i><span>56%</span></div>
+    <br>
+    <br><br>
+    <div class="border" style="padding:50px;">
+        <h1>代码结构</h1>
+        <br><br>
+        <img src="temp/5.jpg">
+    </div>
+</div>
+</body>
+</html>
