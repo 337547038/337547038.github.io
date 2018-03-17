@@ -1,4 +1,0 @@
-jquery.flexslider-min.js 图片轮播的一个插件
-raphael.js和svgCircle.js 主要用来画圆环进度，两个脚本要一起引用
-share.js 分享到其它平台
-
