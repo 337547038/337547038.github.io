@@ -69,7 +69,15 @@
          $('body').css({overflow:'hidden'});
          }*/
         if (opt.noScroll) {
-            $("body").css({overflow: 'hidden'});
+            var PR = 0;
+            //如果有滚动条时
+            if ($(document).height() > $(window).height()) {
+                PR = 17;//滚动条大概的宽，防抖动
+            }
+            $("body").css({
+                overflow: 'hidden',
+                paddingRight: PR
+            })
         }
         if (opt.loadBack != null) { //加载后回调
             opt.loadBack();
@@ -983,7 +991,10 @@ var layer = {
                 if (i <= 0 || !a) {
                     $("#grey-background").remove();
                     //去掉body属性
-                    $("body").css({overflow: 'visible'});
+                    $("body").css({
+                        overflow: '',
+                        paddingRight: ''
+                    })
                 }
             });
         if (l.data("type") == 1) {
