@@ -1009,22 +1009,24 @@ var iconfont = {
          v = $.browser.version,
          dm = document.documentMode;
          if ((isie && dm <= 7) || (isie && v == 7.0 && !dm)) {*/
-        var browser = navigator.appName;
-        if (browser == "Microsoft Internet Explorer") {
-            var b_version = navigator.appVersion;
-            var version = b_version.split(";");
-            var trim_Version = version[1].replace(/[ ]/g, "");
-            if (trim_Version == "MSIE7.0") {
-                var els = document.getElementsByTagName('*'), i, c, el;
+        var documentMode = window.document.documentMode;
+        var isIE7 = !!navigator.userAgent.match(/MSIE 7.0/);
+        if (isIE7) {
+            //IE7下documentMode=undefined
+            if (documentMode == undefined || documentMode == 7) {
+                var els = document.getElementsByTagName('*'),
+                    i,
+                    c,
+                    el;
                 for (i = 0; ; i += 1) {
                     el = els[i];
                     if (!el) {
-                        break;
+                        break
                     }
                     c = el.className;
                     c = c.match(/icon-[^\s'"]+/);
                     if (c && fontjson[c[0]]) {
-                        el.innerHTML = fontjson[c[0]];
+                        el.innerHTML = fontjson[c[0]]
                     }
                 }
             }
