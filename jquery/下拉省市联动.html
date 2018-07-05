@@ -173,9 +173,9 @@
             for (var i = 0; i < provinceList.length; i++) {
                 $("<li>" + provinceList[i].name + "</li>").appendTo(provinceli);
             }
-            $(".demo1").selectdrapdown({
+            $(".demo1").selectDropDown({
                 linum: 10, afterback: function (t) {
-                    var cl = t.parents(".select-drapdown").attr("id");//在标签中添加id用于识别当前属于哪个，或者添加其它标签属性
+                    var cl = t.parents(".select-dropdown").attr("id");//在标签中添加id用于识别当前属于哪个，或者添加其它标签属性
                     if (cl == "province") {//省份点击时
                         var pi;
                         for (var i = 0; i < provinceList.length; i++) {
@@ -199,7 +199,7 @@
 //省市联动下拉方法一演示代码结束
 ///////////////////////////////////////////////////////////////////////////////////////
             //省市联动下拉方法二演示开始
-            $(".demo2").selectdrapdown({linum: 10});
+            $(".demo2").selectDropDown({linum: 10});
 
             //填充省份下拉
             for (var i = 0; i < provinceList.length; i++) {
@@ -248,17 +248,17 @@
         <h1>城市下拉演示，运用插件的回调函数afterback</h1>
         <div class="form-group">
             <label>省市联动：</label>
-            <div class="select-drapdown demo1" id="province">
+            <div class="select-dropdown demo1" id="province">
                 <div class="input-control">请选择省</div>
-                <div class="drapdown">
+                <div class="dropdown">
                     <ul>
                     </ul>
                 </div>
 
             </div>
-            <div class="select-drapdown demo1" id="city">
+            <div class="select-dropdown demo1" id="city">
                 <div class="input-control">请选择城市</div>
-                <div class="drapdown">
+                <div class="dropdown">
                     <ul>
 
                     </ul>
@@ -273,17 +273,17 @@
         <h1>城市下拉演示2</h1>
         <div class="form-group">
             <label>省市联动：</label>
-            <div class="select-drapdown demo2 province">
+            <div class="select-dropdown demo2 province">
                 <div class="input-control">请选择省</div>
-                <div class="drapdown">
+                <div class="dropdown">
                     <ul>
                     </ul>
                 </div>
 
             </div>
-            <div class="select-drapdown demo2 city">
+            <div class="select-dropdown demo2 city">
                 <div class="input-control">请选择城市</div>
-                <div class="drapdown">
+                <div class="dropdown">
                     <ul>
 
                     </ul>
