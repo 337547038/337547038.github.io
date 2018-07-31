@@ -1,0 +1,18 @@
+@charset "UTF-8";
+body, div, p, ul, li, input, button, span, h1, h2, h3, h4, pre{margin: 0;padding: 0}
+ul, li{list-style: none}
+body{background: #f5f6f7;font-size: 16px;font-family: Arial, "Microsoft YaHei", "simsun";color: #333}
+a{font-size: 16px;color: #333;text-decoration: none}
+a:hover{color: #f00}
+.container{width: 1180px;margin: 0 auto;padding: 0 10px;position: relative;}
+.sidebar{width: 300px;position: absolute;right: 10px;top: 0;bottom: 0}
+.sidebar ul{position: fixed;top: 0;width: 300px;padding: 10px 0;overflow: hidden;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);background: #fff;overflow-y: auto;}
+.sidebar ul li{padding: 0 15px;}
+.sidebar ul li:first-child a{border: 0}
+.sidebar ul li a{display: block;border-top: 1px dotted #ccc;line-height: 22px;padding: 10px 0}
+.main-body{box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);background: #fff;padding: 20px; margin-right: 315px}
+.main-body .item{border-top: 1px solid #ddd;margin-bottom: 20px;padding-top: 20px}
+.main-body .item:first-child{border-top: 0;padding-top: 0}
+.main-body .title{font-size: 18px;margin-bottom: 15px}
+.main-body .content{font-size: 16px;line-height: 30px}
+.main-body .content p{text-indent: 30px;margin-bottom: 10px}

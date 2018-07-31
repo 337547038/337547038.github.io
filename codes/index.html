@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码片段-前端</title>
+    <!--<link rel="stylesheet" href="syntaxhighlighter/styles/shCoreEmacs.css" type="text/css">-->
+    <link rel="stylesheet" href="syntaxhighlighter/styles/shCoreRDark.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="syntaxhighlighter/scripts/XRegExp.js" type="text/javascript"></script>
+    <script src="syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+    <script src="syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+    <script src="syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+    <script src="syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+        $(function () {
+            $('.sidebar li').click(function () {
+                var index = $(this).index();
+                $("html,body").animate({scrollTop: $(".main-body .item").eq(index).offset().top}, 1000);
+            });
+            auto();
+            $(window).resize(function () {
+                auto();
+            });
+        });
+
+        function auto() {
+            var wh = $(window).height();
+            var fixedUl = $('.sidebar ul').outerHeight();
+            if (fixedUl > wh) {
+                $('.sidebar ul').height(wh - 20);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="main-body">
+        <!--<div class="item">
+            <div class="title"></div>
+            <div class="content"></div>
+        </div>-->
+        <div class="item">
+            <div class="title">CSS如何实现文字两端对齐</div>
+            <div class="content">
+                在排版表单字段时，很多时候字数不一，如下：<br>
+                用户名：<br>
+                密码：<br>
+                手机号码：<br>
+                要实现前面的文字两端对齐，有个傻傻的办法就是在文字中间用空格隔开；<br>
+                解决办是：
+                <pre class="brush:html">
+                <label>用户名:</label>
+                css如下：
+                label{ text-align:justify; width:100px;}
+                label:after{ display:inline-block;width:100%;content:""}
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">js获取移动端屏幕高度问题</div>
+            <div class="content">
+                <p>在做移动端页面的时候，经常会遇到需要获取屏幕的高度和宽度，进行一些特殊效果的处理或者兼容。比如在做全屏滑动上下翻页的效果，这种就需要页面加载时获取到屏幕的高度。</p>
+                <p>在pc页面时，当一个页面在最底部时，滚动条的位置＝文档的高度－窗口的高度。jquery取这三个属性的高度为：</p>
+                <pre class="brush:js">
+                    var scrollTop=$(window).scrollTop();//滚动条
+                    var documentHeight=$(document).height();//文档
+                    var windowHeight=$(window).height();//窗口
+                    即 scrollTop=documentHeight-windowHeight;条件为真时表示页面滚动到了底部，scrollTop值从0开始，但不会大于documentHeight-windowHeight
+                </pre>
+
+                <p>
+                    但在移动端部分浏览器并非如此，例如安卓UC浏览器（带工具条），滚动条在底部时documentHeight-windowHeight>scrollTop，比滚动条还要大50px左右，也就是相等不会成立，没办法判断是否到了底部。这是因为获取到的高度解析不一样，解决办法为使用window.innerHeight取高度，当到达底部时使得上面等式成立</p>
+                <pre class="brush:js">
+                    var windowHeight=window.innerHeight;
+                    //在安卓UC浏览器测试结果为：
+                    alert($(window).height()) //483
+                    alert(document.documentElement.clientHeight)//483
+                    alert(window.innerHeight)//532
+
+                    //同一手机微信测试结果为：
+                    alert($(window).height()) //532
+                    alert(document.documentElement.clientHeight)//532
+                    alert(window.innerHeight)//532
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">js获取滚动条的宽度</div>
+            <div class="content">
+                <p>判断滚动条的需求在弹窗插件中使用比较多，当弹窗添加overflow: hidden时，如果页面比较长的话，添加这个属性之后页面会有晃动。</p>
+                <p>为了增强用户体验，通过判断是否有滚动条而添加 margin-left 属性以抵消 overflow: hidden 之后的滚动条位置。</p>
+                <pre class="brush:js">
+//判断是否有滚动条的方法
+function hasScrollbar() {
+  return document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight);
+}
+
+//计算滚动条宽度的方法
+//新建一个带有滚动条的 div 元素，通过该元素的 offsetWidth 和 clientWidth 的差值即可获得
+function getScrollbarWidth() {
+  var scrollDiv = document.createElement("div");
+  scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+  document.body.appendChild(scrollDiv);
+  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.body.removeChild(scrollDiv);
+  return scrollbarWidth;
+}
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">使用rem布局时js获取dom元素的高度数值不精确</div>
+            <div class="content">
+                <p>页面使用rem布局，dom元素的宽高会有浮点数的情况，如110.32px。获取元素高度时使用jq的height及offsetHeight函数取到的数值都是整数，如110px。</p>
+                <p>例如在一些滚动效果上，滚动的单位数越大则误差越大，如110*10=1100px，实际应该是110.32*10=1103.2，解决的办法：</p>
+                <pre class="brush:js">
+var obj = document.getElementById('demo');
+var oStyle = obj.currentStyle?obj.currentStyle:window.getComputedStyle(obj, null);
+var height = parseFloat(oStyle.height);
+//currentStyle这个是针对IE浏览器的
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">Vue中v-model无法动态更新对象数组问题数据</div>
+            <div class="content">
+                大致代码如下：
+                <pre class="brush:html">
+                <input type='text' v-model='value'>{{value}}
+                </pre>
+                <pre class="brush:js">
+data(){
+    return {
+        value:['1','2']
+    }
+},
+methods:{
+    test(){
+        this.value[0]='3';
+        this.$emit('input',this.value)
+    }
+}
+                </pre>
+                <p>emit后实际上value显示的值并没有同步更新，因为vue监听的是this.value没有监听this.value的子项，所以直接改变子项不会触发更新，解决办法：</p>
+                <p>1.利用vue的set方法<br>
+                    this.$set(example.item,indexOfItem,newValue)或Vue.set(..)<br>
+                    结合上例子便是this.$set(this.value,'0','3')</p>
+
+                <p>2.Array.prototype.splice方法<br>
+                    example.item.splice(indexOfItem,1,newValue)<br>
+                    即this.value.splice(0,1,'3')<br>
+                    意思为从第0个开始，删除一个元素，并向数组中添加新元素3，可参考splice用法</p>
+
+                以上两种方法都可以实现相同的效果，将触发状态更新；
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">获取隐藏元素的宽高</div>
+            <div class="content">
+               <pre class="brush:js">
+function getDomWidthOrHeight(widthOrHeight, obj) {
+    //console.log(widthOrHeight+"="+obj);
+    var clone = obj.cloneNode(true);
+    clone.style.display = "block";
+    clone.style.position = "absolute";
+    clone.style.top = '-10000px';
+    obj.parentNode.appendChild(clone);
+
+    var width = clone.offsetWidth;
+    var height = clone.offsetHeight;
+    //console.log(width+"--"+height);
+    obj.parentNode.removeChild(clone);
+    return widthOrHeight == "width" ? width : height;
+}
+
+
+/*另外一种更直接简单的方法*/
+function getHeight(obj) {
+    obj.style.visibility = 'hidden';
+    //obj.style.opacity=0;
+    obj.style.display = "block";
+    obj.style.position = "absolute";
+    obj.style.top = '-10000px';
+    var height = obj.offsetHeight;
+    obj.style = '';
+    return height;
+}
+               </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">Vue使用sass</div>
+            <div class="content">
+                1、npm install --save-dev sass-loader node-sass<br>
+                2、build/webpack.base.conf.js添加loader；<br>
+                <pre class="brush:js">
+                {
+                  test: /\.scss$/,
+                  loader: 'style!css!sass?sourceMap'
+                }
+                    </pre>
+                3、在App.vue里引入；
+                <pre class="brush:html">
+                　　<style lang="scss">
+                　　
+                @import "sass/index.scss";
+                　　</style>
+                </pre>
+                4、生成soureMap可在config/index.js里设置cssSourceMap:true<br>
+
+                Vue.js v2.5.9
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">jquery图片垂直水平居中</div>
+            <div class="content">
+                <pre class="brush:js">
+;(function ($) {
+    $.fn.extend({
+        imgHook: function (opt) {
+            opt = jQuery.extend({className: "img-hook"}, opt);
+            var th = $(this);
+            if (th.length > 0) {
+                if (th[0].tagName == 'IMG') {
+                    th.wrap('<div class="' + opt.className + '"></div>');
+                    th.before('<b class="hook"></b>')
+                } else {
+                    th.addClass(opt.className);
+                    th.prepend('<b class="hook"></b>')
+                }
+            }
+        }
+    });
+})(jQuery);
+
+//引用
+$(".img").imgHook();
+
+/*
+主要样式
+.img-hook { text-align: center; font-size: 0; overflow: hidden }
+.img-hook img { vertical-align: middle; max-width: 100%; max-height: 100% }
+.img-hook .hook { display: inline-block; width: 0; height: 100%; overflow: hidden; font-size: 0; line-height: 0; vertical-align: middle }
+*/
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">jquery循环滚动效果</div>
+            <div class="content">
+                <p>jquery焦点图插件百度其实是很多很多的，只是很多时候还是不能满足项目的需求，这是一款可以循环滚动效果，支持图片及文字混排</p>
+                <pre class="brush:css">
+/*主要css*/
+.slides{ width: 750px; height: 500px; position: relative; overflow: hidden; margin: 0 auto }
+.scroll{ width: 1000%; position: relative; }
+.scroll:after{ content: ''; clear: both; display: block; visibility: hidden }
+.scroll .item{ float: left; width: 200px; height: 400px; background: #42b983; margin-top: 50px; }
+.scroll .item.active{ width: 350px; height: 500px; margin-top: 0; background: #ddd }
+                </pre>
+                <pre class="brush:html">
+<!--主要html结构-->
+<div class="slides">
+    <div class="scroll">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+    <a href="javascript:;" class="arrow arrow-left">left</a>
+    <a href="javascript:;" class="arrow arrow-right">right</a>
+</div>
+                </pre>
+                <pre class="brush:js">
+var arrowLeft = $(".arrow-left");
+var arrowRight = $(".arrow-right");
+var scroll = $(".scroll");
+var itemWidth = scroll.find(".item").outerWidth();
+
+//clone(); //如果不够的话复制
+function clone() {
+    var len = scroll.find(".item").length;
+    if (len < 4) {
+        scroll.append(scroll.find(".item").clone());
+        clone();
+    }
+}
+
+//设定宽，+150是中间那个大的宽
+scroll.css({"width": itemWidth * scroll.find(".item").length + 150});
+scroll.find(".item").eq(1).addClass("active");
+arrowLeft.click(function () {
+    if (!scroll.is(":animated")) {
+        scroll.prepend(scroll.find(".item:last"));
+        scroll.css("left", -itemWidth);
+        scroll.find(".item").removeClass("active");
+        scroll.find(".item").eq(1).addClass("active");
+        scroll.animate({"left": 0});
+    }
+});
+arrowRight.click(function () {
+    if (!scroll.is(":animated")) {
+        scroll.find(".item").removeClass("active");
+        scroll.find(".item").eq(2).addClass("active");
+        scroll.animate({
+                "left": -itemWidth
+            },
+            function () {
+                $(this).find(".item:first").appendTo(this);
+                $(this).css("left", 0);
+            });
+    }
+});
+//添加自动滚动
+var timer = setInterval(function () {
+    arrowRight.trigger("click");
+}, 5000);
+//鼠标移上去时停止滚动
+$(".slides").mouseenter(function () {
+    clearInterval(timer);
+}).mouseleave(function () {
+    timer = setInterval(function () {
+        arrowRight.trigger("click");
+    }, 5000);
+});
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">移动端H5和App端输入框被键盘挡住解决方法</div>
+            <div class="content">
+                <p>
+                    在移动端的开发中，页面中使用了如iScroll或者是Swiper等插件用于滚屏时，在安卓手机弹机的键盘往往会挡住输全入框，使得无法正常输入实现方法是在输入框取得焦点时，监听resize事件，将当前页面往上移动一定的距离</p>
+                <pre class="brush:js">
+var u = navigator.userAgent;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        if (isAndroid) {
+            var show = false;
+            var offsetTop = 0;
+            var wh = $(window).height();
+            //取得焦点时
+            $(".input-focus").focus(function () {
+                show = true;
+                offsetTop = $(this).offset().top;
+            });
+            //弹出键盘时窗口会触发resize事件
+            //这里面将输入框拉到屏幕的中间位置
+            $(window).resize(function () {
+                var height = $(this).height();
+                if (wh - height > 50 && show) {
+                    var h = '-' + parseInt(offsetTop - height / 2) + "px";
+                    $(".page").css({"transform": 'translateY(' + h + ')'});
+                }
+                else {
+                    $(".page").css({"transform": 'translateY(0px)'});
+                    offsetTop = 0;
+                }
+            });
+        }
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">jquery插件封装几种方法</div>
+            <div class="content">
+                <pre class="brush:js">
+//1.jquery插件封装方法1：
+(function ($) {
+    $.fn.extend({
+        test: function (opt) {
+            opt = jQuery.extend({
+                name: 'name',
+                after: null
+            }, opt);
+            //这里是实现代码
+
+            //可以对方暴露一些方法
+            return {
+                method1: function () {
+                    return 'abc'
+                },
+                method2: function () {
+                    console.log('method2');
+                },
+            }
+        }
+    })
+})(jQuery);
+
+//引用方法
+$("div").test();
+
+//或者带参数：
+$("div").test({
+    name: "testName",
+    after: function () {
+        //回调
+    }
+});
+
+//调用暴露的方法
+var div = $('div').test();
+var getMethod = div.method1();//abc
+
+//2.jquery插件封装方法2：
+//可以将参数抽取出来
+(function () {
+    $.fn.test = function (opt) {
+        opt = $.extend({},
+            $.fn.layer.defaults, opt);
+        //这里是实现代码
+        console.log(opt.width);
+    };
+    $.fn.test.defaults = {
+        width: '100',
+        height: '100'
+    }
+})(jQuery);
+//等价于：
+(function () {
+    $.fn.test = function (opt) {
+        opt = $.extend({
+            width: '100',
+            height: '100'
+        }, opt);
+        console.log(opt.width);
+    };
+})(jQuery);
+
+//引用方法
+$("div").test();
+
+//3.jquery插件封装3：
+//也可以像方法2将参数单独提取出来
+(function ($) {
+    jQuery.test = function (opt) {
+        opt = $.extend({
+            width: '100',
+            height: '100'
+        }, opt);
+        console.log(opt.width);
+    };
+})(jQuery);
+
+//引用方法
+$.test();
+//这种不需要绑定一个标签
+                </pre>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">常用js整理</div>
+            <div class="content">
+                <pre class="brush:js">
+//获取Url中的参数值
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return r[2];
+    }
+    else {
+        return "";
+    }
+}
+
+//相当于锚点
+$("html,body").animate({scrollTop: $(".top").offset().top}, 1000);
+
+//倒计时
+var sec = document.getElementById("second");
+var i = 5;
+var timer = setInterval(function () {
+        i--;
+        sec.innerHTML = i;
+        if (i == 1) {
+            window.location.href = "";
+        }
+    },
+    1000);
+
+//indexOf判断数组中是否包含某个元素(兼容)
+if (!Array.indexOf) {
+    Array.prototype.indexOf = function (el) {
+        for (var i = 0,
+                 n = this.length; i < n; i++) {
+            if (this[i] === el) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+var arry = ["xml", "html", "css", "js"];
+console.log(arry.indexOf('js'))
+
+
+//js判断ie浏览器版本
+var isIE7 = !!navigator.userAgent.match(/MSIE 7.0/);
+var isIE8 = !!navigator.userAgent.match(/MSIE 8.0/);
+var isIE9 = !!navigator.userAgent.match(/MSIE 9.0/);
+
+//javascript取浏览器窗口宽（兼容）相当于$(window).width()
+var width = document.documentElement.clientWidth || document.body.clientWidth;
+
+//传入的float数字 ，n:希望返回小数点几位
+function formactNum(s, n) {
+    n = n > 0 && n <= 20 ? n : 2;
+    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+    var l = s.split(".")[0].split("").reverse(),
+        r = s.split(".")[1];
+    t = "";
+    for (i = 0; i < l.length; i++) {
+        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+    }
+    return t.split("").reverse().join("") + "." + r;
+}
+
+
+//判断浏览器是否支持css属于 也可以判断ie浏览器版本
+if ('borderRadius' in document.createElement('div').style) {
+    //支持圆角为ie9或以上
+}
+
+if ('placeholder' in document.createElement('input') {
+    //如果input支持placeholder　　得知ie版本为9以上
+}
+//还有属性opacity ie8+支持
+
+//javascript添加删除样式类名
+function hasClass(elements, cName) {
+    return !!elements.className.match(new RegExp("(\\s|^)" + cName + "(\\s|$)"));
+}
+
+function addClass(elements, cName) {
+    if (!hasClass(elements, cName)) {
+        if (elements.className) {
+            elements.className += " " + cName;
+        } else {
+            elements.className += cName;
+        }
+    }
+}
+
+function removeClass(elements, cName) {
+    if (hasClass(elements, cName)) {
+        elements.className = elements.className.replace(new RegExp("(\\s|^)" + cName + "(\\s|$)"), "");
+    }
+}
+
+
+//移动端触摸
+$('.scroll ul').on('touchstart',
+    function (e) {
+        var _touch = e.originalEvent.targetTouches[0];
+        var str = $(this)[0].style.transform,
+            ely = 0;
+        if (str != "") {
+            var translate = str.substring(str.indexOf("(") + 1, str.lastIndexOf(","));
+            ely = translate.split(',')[1];
+        }
+        _y = _touch.pageY - parseFloat(ely);
+        e.preventDefault();
+    });
+                </pre>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li><a href="javascript:;">CSS如何实现文字两端对齐</a></li>
+            <li><a href="javascript:;">js获取移动端屏幕高度问题</a></li>
+            <li><a href="javascript:;">js获取滚动条的宽度</a></li>
+            <li><a href="javascript:;">使用rem布局时js获取dom元素的高度数值不精确</a></li>
+            <li><a href="javascript:;">Vue中v-model无法动态更新对象数组问题数据</a></li>
+            <li><a href="javascript:;">获取隐藏元素的宽高</a></li>
+            <li><a href="javascript:;">Vue使用sass</a></li>
+            <li><a href="javascript:;">jquery图片垂直水平居中</a></li>
+            <li><a href="javascript:;">jquery循环滚动效果</a></li>
+            <li><a href="javascript:;">移动端H5和App端输入框被键盘挡住解决方法</a></li>
+            <li><a href="javascript:;">jquery插件封装几种方法</a></li>
+            <li><a href="javascript:;">常用js整理</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
