@@ -1,0 +1,1 @@
+import{r as e,a,c as l,o as u}from"./vendor.c011ad29.js";const n={setup:()=>({value1:e(1)})};n.render=function(e,n,o,r,t,d){const s=a("ak-input-number");return u(),l(s,{modelValue:r.value1,"onUpdate:modelValue":n[1]||(n[1]=e=>r.value1=e),step:5,readOnly:!0},null,8,["modelValue"])};export default n;

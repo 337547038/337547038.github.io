@@ -1,1 +1,0 @@
-import{o as e,c as n}from"./vendor.1eabd6cc.js";const o={name:"index",data:()=>({}),props:{},components:{},methods:{},computed:{},mounted(){}};o.render=function(o,d,t,r,a,c){return e(),n("div",null,"index")};export default o;
