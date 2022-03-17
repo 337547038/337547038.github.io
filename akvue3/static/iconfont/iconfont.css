@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 2578019 */
-  src: url('iconfont.woff2?t=1635430474961') format('woff2'),
-       url('iconfont.woff?t=1635430474961') format('woff'),
-       url('iconfont.ttf?t=1635430474961') format('truetype');
+  font-family: "iconfont"; /* Project id 1935909 */
+  src: url('iconfont.woff2?t=1636095489194') format('woff2'),
+       url('iconfont.woff?t=1636095489194') format('woff'),
+       url('iconfont.ttf?t=1636095489194') format('truetype');
 }
 
 .iconfont,[class*="icon-"] {
@@ -13,127 +13,99 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-import:before {
-  content: "\e616";
+.icon-loading:before {
+  content: "\e62b";
 }
 
-.icon-image:before {
-  content: "\e63e";
-}
-
-.icon-card:before {
-  content: "\e622";
-}
-
-.icon-help:before {
-  content: "\e61c";
-}
-
-.icon-table:before {
-  content: "\e6a9";
-}
-
-.icon-component:before {
-  content: "\e620";
-}
-
-.icon-link:before {
-  content: "\e623";
-}
-
-.icon-cascader:before {
-  content: "\e624";
-}
-
-.icon-number:before {
-  content: "\e647";
-}
-
-.icon-title:before {
-  content: "\e61d";
-}
-
-.icon-tabs:before {
-  content: "\e6d4";
-}
-
-.icon-close:before {
-  content: "\e615";
-}
-
-.icon-plus:before {
-  content: "\e603";
-}
-
-.icon-arrow:before {
-  content: "\e61b";
+.icon-down:before {
+  content: "\e610";
 }
 
 .icon-check:before {
   content: "\e6c1";
 }
 
-.icon-vue:before {
-  content: "\e69a";
+.icon-arrow:before {
+  content: "\e61a";
 }
 
-.icon-switch:before {
-  content: "\e646";
+.icon-hook:before {
+  content: "\e88c";
 }
 
-.icon-save:before {
-  content: "\e61f";
+.icon-lock:before {
+  content: "\e88f";
 }
 
-.icon-move:before {
-  content: "\e696";
+.icon-user:before {
+  content: "\e898";
 }
 
-.icon-clone:before {
-  content: "\e692";
-}
-
-.icon-del:before {
-  content: "\e67d";
-}
-
-.icon-eye:before {
-  content: "\e601";
-}
-
-.icon-json:before {
+.icon-correct:before {
   content: "\e60e";
 }
 
-.icon-grid:before {
-  content: "\e652";
+.icon-eye-close:before {
+  content: "\e61c";
 }
 
-.icon-text:before {
-  content: "\e621";
+.icon-error:before {
+  content: "\e640";
+}
+
+.icon-del:before {
+  content: "\e608";
+}
+
+.icon-top:before {
+  content: "\e90c";
+}
+
+.icon-upload:before {
+  content: "\e915";
+}
+
+.icon-search:before {
+  content: "\e60b";
+}
+
+.icon-eye:before {
+  content: "\eab4";
+}
+
+.icon-minus:before {
+  content: "\e7af";
+}
+
+.icon-warn:before {
+  content: "\e638";
+}
+
+.icon-close:before {
+  content: "\e650";
+}
+
+.icon-plus:before {
+  content: "\e625";
 }
 
 .icon-date:before {
-  content: "\e64c";
+  content: "\e6c7";
 }
 
-.icon-input:before {
-  content: "\e629";
+.icon-refresh:before {
+  content: "\e615";
 }
 
-.icon-checkbox:before {
-  content: "\e61e";
+.icon-failure:before {
+  content: "\e90b";
 }
 
-.icon-textarea:before {
-  content: "\e60a";
+.icon-tips:before {
+  content: "\e90d";
 }
 
-.icon-radio:before {
-  content: "\e6b1";
-}
-
-.icon-select:before {
-  content: "\e64d";
+.icon-success:before {
+  content: "\e90e";
 }
 
