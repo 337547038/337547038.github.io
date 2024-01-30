@@ -1,84 +1,247 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>index</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport"
+        content="viewport-fit=cover,width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+  <title>作品集</title>
+  <style>
+    html, body, div, img, h2, h3, a {
+      margin: 0;
+      padding: 0
+    }
 
+    a {
+      font-size: 14px;
+      text-decoration: none;
+      color: #333
+    }
+
+    a:visited {
+      color: #333
+    }
+
+    body {
+      font-size: 14px;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: 95%;
+    }
+    h2{font-size: 18px;padding: 10px 0;}
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 10px;
+    }
+
+    .list .item {
+      width: 25%;
+      padding: 0 6px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .list .item .img {
+      display: block;
+      width: 100%;
+      height: auto
+    }
+
+    .list .box {
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    .list .intro {
+      color: #666;
+      margin: 10px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      height: 95px
+    }
+
+    .list .item h3 {
+      font-size: 16px;
+      font-weight: 400;
+      padding-top: 10px;
+      color: #1989fa;
+    }
+
+    .stars {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .stars a {
+      color: red
+    }
+    .more{padding: 20px 0;text-align: center;}
+    .more a{color: #fff;font-size: 16px;height: 40px;display: inline-flex;align-items: center;justify-content: center;background: #1989fa;border: 0;padding: 0 15px;border-radius: 5px}
+    .plugin{color: #666}
+    .plugin .item{border-bottom: 1px solid #eee;margin-bottom: 10px;}
+    .plugin h3{font-size: 15px;color: #1989fa;font-weight: 400}
+  </style>
+</head>
 <body>
 <div class="container">
-  <div class="article-list">
+  <h2>开源项目</h2>
+  <div class="list">
     <div class="item">
-      <h3><a href="https://github.com/337547038/ak-vue3" target="_blank">基于Vue 3 + Typescript + Vite的PC端组件</a></h3>
-      <p>基于Vue 3 + Typescript + Vite的PC端UI组件，包括了Carousel 跑马灯、Cascader 级联、Checkbox 多选框、Collapse 折叠面板、DatePicker 日期选择、Dialog 对话框、Form
-        表单、Input 输入框、InputNumber 数字输入框、Layer 弹窗层、Loading 加载、Menu 菜单、Page 分页、Progress 进度条、Radio 单选框、SelectDropDown
-        仿select、Switch 开关、Table 表格、Tabs 标签页、Textarea 文本框、Tooltip 文字提示、BackTop 返回顶部、Steps 步骤条、Transfer 穿梭框、Tree
-        树形、Upload文件上传等</p>
-      <p class="demo"><a href="/akvue3/">演示地址</a></p>
+      <div class="box">
+        <a href="https://github.com/337547038/vue-form-design" target="_blank">
+          <img src="./static/works/form.png" alt="" class="img">
+          <h3>ak-design可视化拖拽表单设计器</h3>
+          <div class="intro">一种可视化拖拽式表单设计编辑器，能够以图形化方式生成表单。通过它，可以以无需编写代码的方式来构建表单，并且可以为表单添加各种校验规则。
+            设计器具有易用性，且能够为应用程序快速生成美观的表单，提高开发效率。
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
+          <a href="https://337547038.github.io/vue-form-design/#/design/form" target="_blank">预览</a>
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/Vue-UI-for-PC" target="_blank">基于Vue2.X的一套PC端组件V1.0.0</a></h3>
-      <p>基于Vue2.X的一套PC端UI组件，包括了Carousel 跑马灯、Cascader 级联、Checkbox 多选框、Collapse 折叠面板、DatePicker 日期选择、Dialog 对话框、Form
-        表单、Input 输入框、InputNumber 数字输入框、Layer 弹窗层、Loading 加载、Menu 菜单、Page 分页、Progress 进度条、Radio 单选框、SelectDropDown
-        仿select、Switch 开关、Table 表格、Tabs 标签页、Textarea 文本框、Tooltip 文字提示、BackTop 返回顶部、Steps 步骤条、Transfer 穿梭框、Tree
-        树形、Upload文件上传等</p>
-      <p class="demo"><a href="/akvue/">演示地址</a></p>
+      <div class="box">
+        <a href="https://github.com/337547038/vue-form-design" target="_blank">
+          <img src="./static/works/flow.png" alt="" class="img">
+          <h3>ak-design可视化流程管理设计器</h3>
+          <div class="intro">
+            Ak-Design可视化流程管理设计器，允许用户通过直观的可视化界面设计和修改业务流程。这个工具旨在降低流程设计的复杂性，提高工作效率，并使非技术人员也能轻松参与流程设计
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
+          <a href="https://337547038.github.io/vue-form-design/#/design/flow" target="_blank">预览</a>
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/vue-form-design" target="_blank">vue自定义表单设计器</a></h3>
-      <p>基于vue开发的一款表单设计器，提高表单开发效率的利器。通过拖拽即可完成表单设计</p>
-      <p class="demo"><a href="/vue-form-design/">演示地址</a></p>
+      <div class="box">
+        <a href="https://github.com/337547038/vue-form-design" target="_blank">
+          <img src="./static/works/screen.png" alt="" class="img">
+          <h3>ak-design数据可视化大屏设计器</h3>
+          <div class="intro">
+            提供一种简单易用的拖拽式数据可视化大屏设计方案。编辑器提供了丰富的组件库和多种样式配置选项，可以帮助用户快速搭建并定制属于自己的数据可视化大屏
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
+          <a href="https://337547038.github.io/vue-form-design/#/design/screen" target="_blank">预览</a>
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/Vue-Wap" target="_blank">Vue2.5移动端组件</a></h3>
-      <p>基于Vue2.5的一套移动端组件，包括了CityPicker省市级联、DatePicker时间选择、Dialog对话框、form表单、Picker、Pull下拉刷新上拉加载选择器、Swiper
-        轮播、Upload上传等等常用组件</p>
-      <p class="demo"><a href="/vuewap/">演示地址</a></p>
+      <div class="box">
+        <a href="https://github.com/337547038/ak-vue3" target="_blank">
+          <img src="./static/works/vue3.png" alt="" class="img">
+          <h3>ak-vue3组件UI库</h3>
+          <div class="intro">
+            一款轻量简洁原生vue3组件UI库，不使用第三方插件或库，提供了一系列丰富、可复用的UI组件和丰富的插槽和事件接口，方便进行二次开发
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/ak-vue3.svg" alt="">
+          <a href="https://337547038.github.io/ak-vue3" target="_blank">预览</a>
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/Vue-UI-for-PC" target="_blank">基于Vue2.5的一套PC端组件</a></h3>
-      <p>基于Vue2.5的一套PC端UI组件，包括了Carousel 跑马灯、Cascader 级联、Checkbox 多选框、Collapse 折叠面板、DatePicker 日期选择、Dialog 对话框、Form
-        表单、Input 输入框、InputNumber 数字输入框、Layer 弹窗层、Loading 加载、Menu 菜单、Page 分页、Progress 进度条、Radio 单选框、SelectDropDown
-        仿select、Switch 开关、Table 表格、Tabs 标签页、Textarea 文本框、Tooltip 文字提示、BackTop 返回顶部、Steps 步骤条、Transfer 穿梭框、Tree
-        树形、Upload文件上传等</p>
-      <p class="demo"><a href="/vuepcui/">演示地址</a></p>
+      <div class="box">
+        <a href="https://github.com/337547038/Vue-UI-for-PC" target="_blank">
+          <img src="./static/works/vue2.png" alt="" class="img">
+          <h3>ak-vue2组件UI库</h3>
+          <div class="intro">
+            一款轻量简洁原生vue2组件UI库，不使用第三方插件或库，提供了一系列丰富、可复用的UI组件和丰富的插槽和事件接口，方便进行二次开发
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/Vue-UI-for-PC.svg" alt="">
+          <a href="https://337547038.github.io/Vue-UI-for-PC" target="_blank">预览</a>
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/Vuex-study" target="_blank">在vue-cli中使用vuex学习笔记</a></h3>
-      <p>在vue-cli中使用vuex学习笔记</p>
-      <p class="demo"><a href="/vuexstudy/">演示地址</a></p>
+      <div class="box">
+        <a href="https://github.com/337547038/vite-react" target="_blank">
+          <img src="./static/works/react.png" alt="" class="img">
+          <h3>ak-react组件UI库</h3>
+          <div class="intro">
+            基于vite+react hooks的常用ui组件库，轻量简洁，仅学习交流
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/vite-react.svg" alt="">
+          <a href="https://337547038.github.io/vite-react" target="_blank">预览</a>
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/Automated-build-tools-for-front-end" target="_blank">一款基于NodeJS的前端自动化开发辅助工具</a>
-      </h3>
-      <p>
-        一款基于NodeJS的前端自动化开发辅助工具，该工具集成了本地开发服务器、前端模块化开发管理功能、动态加载html模板、sass编译压缩、js合并压缩、背景图片转base64等功能，减少开发过程中不必要的重复工作，如批量查找替换公共部分、sass编译时使用Ruby中文路径报错，使用Koala有时不会自动编译等等</p>
+      <div class="box">
+        <a href="https://github.com/337547038/ak-design-manage" target="_blank">
+          <img src="./static/works/noimg.png" alt="" class="img">
+          <h3>ak-design可视化设计器管理端(开发中)</h3>
+          <div class="intro">
+            配套ak-design系列设计管理器的低代码快速开发平台管理端，基于java+springBoot搭建，超轻量管理端，易于二次开发，开箱即用
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/ak-design-manage.svg" alt="">
+        </div>
+      </div>
     </div>
     <div class="item">
-      <h3><a href="https://github.com/337547038/React" target="_blank">一款基于React的前端PC组件</a></h3>
-      <p>基于React的组件，React表单验证、React弹层及alert、confirm弹窗、React
-        Tooltip组件，React单选Radio多选Checkbox及Select等form表单元素，Ajax异步数据请求等组件，所有组件代码均兼容IE8 </p>
-      <p class="demo"><a href="https://337547038.github.io/reactDemo/">演示地址</a></p>
-    </div>
-    <div class="item">
-      <h3><a href="https://github.com/337547038/React-for-wap" target="_blank">一款基于React的移动端组件</a></h3>
-      <p>一款基于React的移动端组件</p>
-    </div>
-    <div class="item">
-      <h3><a href="https://github.com/337547038/canvas-Fishing" target="_blank">学习笔记-基于canvas的捕鱼游戏</a></h3>
-      <p>学习笔记-基于canvas的捕鱼游戏</p>
-    </div>
-    <div class="item">
-      <h3><a href="https://github.com/337547038/shoppingCart" target="_blank">学习笔记－幕课网使用vue2.0实现购物车和地址选配功能</a></h3>
-      <p>学习笔记-基于canvas的捕鱼游戏</p>
-    </div>
-    <div class="item">
-      <h3><a href="https://gitee.com/q337547038/codes" target="_blank">常用代码片段</a></h3>
-      <p>整理的一些常用代码片段</p>
+      <div class="box">
+        <a href="https://github.com/337547038/Automated-build-tools-for-front-end" target="_blank">
+          <img src="./static/works/noimg.png" alt="" class="img">
+          <h3>前端自动化构建工具</h3>
+          <div class="intro">
+            一款基于Node.js的前端自动化构建工具，该工具集成了本地开发服务器，减少开发过程中不必要的重复工作，如批量查找替换公共部分；
+          </div>
+        </a>
+        <div class="stars">
+          <img src="https://img.shields.io/github/stars/337547038/Automated-build-tools-for-front-end.svg" alt="">
+        </div>
+      </div>
     </div>
   </div>
+  <div class="more"><a href="https://github.com/337547038?tab=repositories" target="_blank"> 更多开源项目</a></div>
+  <h2>Vite插件</h2>
+  <div class="plugin">
+    <div class="item">
+      <a href="https://www.npmjs.com/package/vite-plugin-doc-preview" target="_blank">
+      <h3>vite-plugin-doc-preview</h3>
+      <p>基于Vite插件机制实现对markdown文件内容进行转换。核心通过marked结合hightlight.js实现代码高亮和美化。并且可让文档中带有如preview指定标识的markdown代码块替换为组件，体验预览效果。支持Vue和React框架。</p>
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://www.npmjs.com/package/vite-plugin-sprites" target="_blank">
+        <h3>vite-plugin-sprites</h3>
+        <p>一款基于NodeJs的图片合成Vite插件，可将多张小图合并成一张大图并生成对应的css样式，可有效减少服务器接收和发送请求，提高页面加载速度。</p>
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://www.npmjs.com/package/vite-plugin-seo-prerender" target="_blank">
+        <h3>vite-plugin-seo-prerender</h3>
+        <p>`vite-plugin-seo-prerender` 插件是一个用于 `Vite` 构建工具的预渲染插件，它可以将你的单页面应用 (SPA) 在构建时静态预渲染为 HTML 文件，以提高首次加载速度和SEO友好性。适用于对站点少量页面生成静态HTML。支持 `Vue、React`等所有框架</p>
+      </a>
+    </div>
+    <div class="item">
+      <a href="https://www.npmjs.com/package/vite-plugin-png-to-svg" target="_blank">
+        <h3>vite-plugin-png-to-svg</h3>
+        <p>一款基于NodeJs的Png图片转换Svg格式的Vite插件，可将Png小图标转换为Svg，从而更好的适应页面的需求，可有效减少服务器接收和发送请求，提高页面加载速度。支持Vue、React等所有框架</p>
+      </a>
+    </div>
+  </div>
+  <div class="more"><a href="https://www.npmjs.com/settings/l337547038/packages" target="_blank"> 更多插件</a></div>
 </div>
 </body>
 </html>
