@@ -30,7 +30,11 @@
       margin: 0 auto;
       width: 95%;
     }
-    h2{font-size: 18px;padding: 10px 0;}
+
+    h2 {
+      font-size: 18px;
+      padding: 10px 0;
+    }
 
     .list {
       display: flex;
@@ -73,21 +77,49 @@
       padding-top: 10px;
       color: #1989fa;
     }
-
+    .foot{display: flex;align-items: center;justify-content: space-between}
     .stars {
+      flex: 2;
       display: flex;
       align-items: center;
-      justify-content: space-between
+      justify-content: flex-start;
+    }
+    .stars img{margin-right: 5px}
+
+    .foot .btn a{background: #1989fa;color: #fff;border-radius: 3px;padding: 2px 8px}
+    .foot .btn a:hover{opacity: .6}
+    .more {
+      padding: 20px 0;
+      text-align: center;
     }
 
-    .stars a {
-      color: red
+    .more a {
+      color: #fff;
+      font-size: 16px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #1989fa;
+      border: 0;
+      padding: 0 15px;
+      border-radius: 5px
     }
-    .more{padding: 20px 0;text-align: center;}
-    .more a{color: #fff;font-size: 16px;height: 40px;display: inline-flex;align-items: center;justify-content: center;background: #1989fa;border: 0;padding: 0 15px;border-radius: 5px}
-    .plugin{color: #666}
-    .plugin .item{border-bottom: 1px solid #eee;margin-bottom: 10px;}
-    .plugin h3{font-size: 15px;color: #1989fa;font-weight: 400}
+
+    .plugin {
+      color: #666
+    }
+
+    .plugin .item {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+
+    .plugin h3 {
+      font-size: 15px;
+      color: #1989fa;
+      font-weight: 400
+    }
   </style>
 </head>
 <body>
@@ -103,9 +135,14 @@
             设计器具有易用性，且能够为应用程序快速生成美观的表单，提高开发效率。
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
-          <a href="https://337547038.github.io/vue-form-design/#/design/form" target="_blank">预览</a>
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/vue-form-design.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/vue-form-design.svg" alt="">-->
+          </div>
+          <div class="btn"><a href="https://337547038.github.io/vue-form-design/#/design/form" target="_blank">预览</a>
+          </div>
         </div>
       </div>
     </div>
@@ -118,9 +155,14 @@
             Ak-Design可视化流程管理设计器，允许用户通过直观的可视化界面设计和修改业务流程。这个工具旨在降低流程设计的复杂性，提高工作效率，并使非技术人员也能轻松参与流程设计
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
-          <a href="https://337547038.github.io/vue-form-design/#/design/flow" target="_blank">预览</a>
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/vue-form-design.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/vue-form-design.svg" alt="">-->
+          </div>
+          <div class="btn"><a href="https://337547038.github.io/vue-form-design/#/design/flow" target="_blank">预览</a>
+          </div>
         </div>
       </div>
     </div>
@@ -133,9 +175,14 @@
             提供一种简单易用的拖拽式数据可视化大屏设计方案。编辑器提供了丰富的组件库和多种样式配置选项，可以帮助用户快速搭建并定制属于自己的数据可视化大屏
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
-          <a href="https://337547038.github.io/vue-form-design/#/design/screen" target="_blank">预览</a>
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/vue-form-design.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/vue-form-design.svg" alt="">
+            <!-- <img src="https://img.shields.io/github/watchers/337547038/vue-form-design.svg" alt="">-->
+          </div>
+          <div class="btn"><a href="https://337547038.github.io/vue-form-design/#/design/flow" target="_blank">预览</a>
+          </div>
         </div>
       </div>
     </div>
@@ -148,9 +195,13 @@
             一款轻量简洁原生vue3组件UI库，不使用第三方插件或库，提供了一系列丰富、可复用的UI组件和丰富的插槽和事件接口，方便进行二次开发
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/ak-vue3.svg" alt="">
-          <a href="https://337547038.github.io/ak-vue3" target="_blank">预览</a>
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/ak-vue3.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/ak-vue3.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/ak-vue3.svg" alt="">-->
+          </div>
+          <div class="btn"><a href="https://337547038.github.io/ak-vue3" target="_blank">预览</a></div>
         </div>
       </div>
     </div>
@@ -163,9 +214,13 @@
             一款轻量简洁原生vue2组件UI库，不使用第三方插件或库，提供了一系列丰富、可复用的UI组件和丰富的插槽和事件接口，方便进行二次开发
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/Vue-UI-for-PC.svg" alt="">
-          <a href="https://337547038.github.io/Vue-UI-for-PC" target="_blank">预览</a>
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/Vue-UI-for-PC.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/Vue-UI-for-PC.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/Vue-UI-for-PC.svg" alt="">-->
+          </div>
+          <div class="btn"><a href="https://337547038.github.io/Vue-UI-for-PC" target="_blank">预览</a></div>
         </div>
       </div>
     </div>
@@ -178,9 +233,13 @@
             基于vite+react hooks的常用ui组件库，轻量简洁，仅学习交流
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/vite-react.svg" alt="">
-          <a href="https://337547038.github.io/vite-react" target="_blank">预览</a>
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/vite-react.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/vite-react.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/vite-react.svg" alt="">-->
+          </div>
+          <div class="btn"><a href="https://337547038.github.io/vite-react" target="_blank">预览</a></div>
         </div>
       </div>
     </div>
@@ -193,8 +252,12 @@
             配套ak-design系列设计管理器的低代码快速开发平台管理端，基于java+springBoot搭建，超轻量管理端，易于二次开发，开箱即用
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/ak-design-manage.svg" alt="">
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/ak-design-manage.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/ak-design-manage.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/ak-design-manage.svg" alt="">-->
+          </div>
         </div>
       </div>
     </div>
@@ -207,8 +270,12 @@
             一款基于Node.js的前端自动化构建工具，该工具集成了本地开发服务器，减少开发过程中不必要的重复工作，如批量查找替换公共部分；
           </div>
         </a>
-        <div class="stars">
-          <img src="https://img.shields.io/github/stars/337547038/Automated-build-tools-for-front-end.svg" alt="">
+        <div class="foot">
+          <div class="stars">
+            <img src="https://img.shields.io/github/stars/337547038/Automated-build-tools-for-front-end.svg" alt="">
+            <img src="https://img.shields.io/github/forks/337547038/Automated-build-tools-for-front-end.svg" alt="">
+            <!--<img src="https://img.shields.io/github/watchers/337547038/Automated-build-tools-for-front-end.svg" alt="">-->
+          </div>
         </div>
       </div>
     </div>
@@ -218,26 +285,31 @@
   <div class="plugin">
     <div class="item">
       <a href="https://www.npmjs.com/package/vite-plugin-doc-preview" target="_blank">
-      <h3>vite-plugin-doc-preview</h3>
-      <p>基于Vite插件机制实现对markdown文件内容进行转换。核心通过marked结合hightlight.js实现代码高亮和美化。并且可让文档中带有如preview指定标识的markdown代码块替换为组件，体验预览效果。支持Vue和React框架。</p>
+        <h3>vite-plugin-doc-preview</h3>
+        <p>
+          基于Vite插件机制实现对markdown文件内容进行转换。核心通过marked结合hightlight.js实现代码高亮和美化。并且可让文档中带有如preview指定标识的markdown代码块替换为组件，体验预览效果。支持Vue和React框架。</p>
       </a>
     </div>
     <div class="item">
       <a href="https://www.npmjs.com/package/vite-plugin-sprites" target="_blank">
         <h3>vite-plugin-sprites</h3>
-        <p>一款基于NodeJs的图片合成Vite插件，可将多张小图合并成一张大图并生成对应的css样式，可有效减少服务器接收和发送请求，提高页面加载速度。</p>
+        <p>
+          一款基于NodeJs的图片合成Vite插件，可将多张小图合并成一张大图并生成对应的css样式，可有效减少服务器接收和发送请求，提高页面加载速度。</p>
       </a>
     </div>
     <div class="item">
       <a href="https://www.npmjs.com/package/vite-plugin-seo-prerender" target="_blank">
         <h3>vite-plugin-seo-prerender</h3>
-        <p>`vite-plugin-seo-prerender` 插件是一个用于 `Vite` 构建工具的预渲染插件，它可以将你的单页面应用 (SPA) 在构建时静态预渲染为 HTML 文件，以提高首次加载速度和SEO友好性。适用于对站点少量页面生成静态HTML。支持 `Vue、React`等所有框架</p>
+        <p>`vite-plugin-seo-prerender` 插件是一个用于 `Vite` 构建工具的预渲染插件，它可以将你的单页面应用 (SPA)
+          在构建时静态预渲染为 HTML 文件，以提高首次加载速度和SEO友好性。适用于对站点少量页面生成静态HTML。支持
+          `Vue、React`等所有框架</p>
       </a>
     </div>
     <div class="item">
       <a href="https://www.npmjs.com/package/vite-plugin-png-to-svg" target="_blank">
         <h3>vite-plugin-png-to-svg</h3>
-        <p>一款基于NodeJs的Png图片转换Svg格式的Vite插件，可将Png小图标转换为Svg，从而更好的适应页面的需求，可有效减少服务器接收和发送请求，提高页面加载速度。支持Vue、React等所有框架</p>
+        <p>
+          一款基于NodeJs的Png图片转换Svg格式的Vite插件，可将Png小图标转换为Svg，从而更好的适应页面的需求，可有效减少服务器接收和发送请求，提高页面加载速度。支持Vue、React等所有框架</p>
       </a>
     </div>
   </div>
